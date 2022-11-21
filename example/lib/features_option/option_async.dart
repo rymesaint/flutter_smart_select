@@ -1,7 +1,7 @@
+import 'package:async/async.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_select/smart_select.dart';
-import 'package:dio/dio.dart';
-import 'package:async/async.dart';
 
 class FeaturesOptionAsync extends StatefulWidget {
   @override
@@ -38,7 +38,8 @@ class _FeaturesOptionAsyncState extends State<FeaturesOptionAsync> {
           ),
           choiceActiveStyle: S2ChoiceStyle(
             raised: true,
-            highlightColor: Theme.of(context).accentColor.withOpacity(.4),
+            highlightColor:
+                Theme.of(context).colorScheme.secondary.withOpacity(.4),
           ),
           choiceSecondaryBuilder: (context, state, choice) => CircleAvatar(
             backgroundImage: NetworkImage(choice.meta['picture']['thumbnail']),
