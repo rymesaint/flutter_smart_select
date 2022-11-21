@@ -131,10 +131,14 @@ class _FeaturesModalWidgetState extends State<FeaturesModalWidget> {
               padding: const EdgeInsets.fromLTRB(25, 5, 25, 15),
               child: ButtonTheme(
                 minWidth: double.infinity,
-                child: FlatButton(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                    textStyle: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                   child: Text('Submit (${state.selection.length})'),
-                  color: Theme.of(context).primaryColor,
-                  textColor: Colors.white,
                   onPressed: state.selection.isValid
                       ? () => state.closeModal(confirmed: true)
                       : null,

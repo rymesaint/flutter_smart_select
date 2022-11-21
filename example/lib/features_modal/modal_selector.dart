@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_select/smart_select.dart';
+
 import '../choices.dart' as choices;
 
 class FeaturesModalSelector extends StatefulWidget {
@@ -63,15 +64,19 @@ class _FeaturesModalSelectorState extends State<FeaturesModalSelector> {
               child: Row(
                 children: <Widget>[
                   const Spacer(),
-                  FlatButton(
+                  ElevatedButton(
                     child: const Text('Cancel'),
                     onPressed: () => state.closeModal(confirmed: false),
                   ),
                   const SizedBox(width: 5),
-                  FlatButton(
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).primaryColor,
+                      textStyle: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                     child: Text('OK (${state.selection.length})'),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Colors.white,
                     onPressed: state.selection.isValid
                         ? () => state.closeModal(confirmed: true)
                         : null,
@@ -240,10 +245,14 @@ class ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return ElevatedButton(
       child: label,
-      color: Theme.of(context).primaryColor,
-      textColor: Colors.white,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Theme.of(context).primaryColor,
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+      ),
       onPressed: onTap,
     );
   }
